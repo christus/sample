@@ -1,0 +1,15 @@
+<div id="pattern" class="pattern">
+  <ul class="list img-list">
+    <li *ngFor="let data of list">
+      <a class="inner">
+        <div class="li-img">
+          <img src="{{data.thumbnailUrl}}" alt="Image Alt Text" />
+        </div>
+        <div class="li-text">
+          <h4 class="li-head">{{data.title}}</h4>
+          <p class="li-sub">Summary of content</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

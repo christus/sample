@@ -22,18 +22,19 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="mobile" id="mobile" [(ngModel)]="mobile" placeholder="Enter your mobile number"/>
+							<input type="number" class="form-control" name="mobile" id="mobile" [(ngModel)]="mobile" placeholder="Enter your mobile number"/>
 						</div>
 					</div>
 				</div>
 
 				<div class="form-group ">
-					<button type="button" class="btn btn-primary btn-lg btn-block login-button" (click)= "(onClickMe())">Register</button>
+					<button type="button" class="btn btn-primary btn-lg btn-block login-button" (click)= "(onClickMe($event))" [disabled]= "buttonStatus" >Register</button>
 				</div>
 				<div class="login-register">
-					<a href="index.php">Login</a>
+					<a>Login</a>
 				 </div>
 			</form>
 		</div>
 	</div>
 </div>
+<router-outlet></router-outlet>

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/toPromise';
+
 
 
 @Injectable()
@@ -45,6 +47,21 @@ export class RegisterService {
           console.log("Error code");
         }
       );
+  }
+
+
+  getListDate() {
+    return new Promise((resolve, reject) => {
+      const req = this.http.get("https://jsonplaceholder.typicode.com/photos").subscribe(
+        res => {
+          resolve(res.json())
+        },
+        err => {
+          console.log(err);
+          reject(err);
+        }
+      )
+    });
   }
 
 }

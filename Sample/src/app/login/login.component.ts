@@ -1,5 +1,8 @@
+import { ListComponent } from './../list/list.component';
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../register.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +15,11 @@ export class LoginComponent implements OnInit {
   name: string;
   mobileNumber: number;
   mobile: number;
-  constructor(private myservice: RegisterService) {
+  buttonStatus:boolean ;
+  list:{};
+  
+  constructor(private myservice: RegisterService, private router: Router) {
+    this.buttonStatus = false
    }
 
   ngOnInit() {
@@ -20,13 +27,14 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onClickMe() {
+  onClickMe($event) {
+    var that = this;
+    console.log($event);
+    this.buttonStatus = true;
     this.userName = this.name;
     this.mobileNumber = this.mobile;
-    console.log(this.userName);
-    console.log(this.mobileNumber);
-    console.log("response "+this.myservice.search_word());
 
+    this.router.navigate(['list']);
   }
 
 }
